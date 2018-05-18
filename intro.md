@@ -50,11 +50,11 @@ layout: page
 それ以外の項目についての一段下の教科書を全部読んでおかないと、
 次に進めない、という事になっている気がする。
 
-![work/imgs/intro/0000.png](work/imgs/intro/0000.png)
+![imgs/intro/0000.png](imgs/intro/0000.png)
 
 これをトピックごとに、縦につなげる側で話してみたい。
 
-![work/imgs/intro/0001.png](work/imgs/intro/0001.png)
+![imgs/intro/0001.png](imgs/intro/0001.png)
 
 縦に話をする事で、それぞれの分野がどう違うのか、というのが、
 そんなに長い修行期間を経なくても分かるように出来るんじゃないか。
