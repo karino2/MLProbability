@@ -1,0 +1,29 @@
+language: go
+go:
+    - master
+branches:
+    only:
+        - build
+install:
+    - go get github.com/karino2/mpd2md
+script:
+    - rm -rf ./work
+    - mkdir ./work
+    - git config --global user.email ${GIT_EMAIL}
+    - git clone --quiet --branch=MeatPieDay https://${OAUTH_TOKEN}@github.com/karino2/MLProbability mpddir > /dev/null 2>&1
+    - cp mpddir/*.ipynb work/
+    - pushd work
+    - ls *.ipynb | xargs mpd2md
+    - popd    
+after_success:
+    - git config --global user.email ${GIT_EMAIL}
+    - git clone --quiet --branch=master https://${OAUTH_TOKEN}@github.com/karino2/MLProbability masterdir > /dev/null 2>&1
+    - rm -rf masterdir/imgs
+    - cp -r work/* masterdir/
+    - pushd masterdir
+    - git add -A
+    - git commit -m "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
+    - git push -fq origin master > /dev/null 2>&1
+    - popd
+notifications:
+  email: false
