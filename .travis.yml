@@ -13,13 +13,13 @@ script:
     - git clone --quiet --branch=MeatPieDay https://${OAUTH_TOKEN}@github.com/karino2/MLProbability mpddir > /dev/null 2>&1
     - cp mpddir/*.ipynb work/
     - pushd work
-    - ls *.ipynb | xargs mpd2md
+    - ls *.ipynb | xargs -L 1 mpd2md
     - popd    
 after_success:
     - git config --global user.email ${GIT_EMAIL}
     - git clone --quiet --branch=master https://${OAUTH_TOKEN}@github.com/karino2/MLProbability masterdir > /dev/null 2>&1
     - rm -rf masterdir/imgs
-    - cp -r work/* masterdir/
+    - cp -r work/work/* masterdir/
     - pushd masterdir
     - git add -A
     - git commit -m "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
