@@ -3,10 +3,13 @@ title: "トップページ"
 layout: page
 ---
 
-# Jekyll用トップページ
-
-ここはインデックスとか出来上がるepubを置いたりする。
+#　目次
 
 - [はじめに](intro.md)
 - [確率空間の話](p_space.md)
 
+## PDF版
+
+以下に本サイトをまとめた物をpdfとして置いてあります。
+
+- [MLProbability.pdf](MLrobability.pdf)
