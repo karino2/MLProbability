@@ -1,9 +1,14 @@
+sudo: required
 language: go
 go:
     - master
+services:
+  - docker
 branches:
     only:
         - MeatPieDay
+before_install:
+  - docker build -t karino/pandocgo .
 install:
     - go get github.com/karino2/mpd2md
 script:
@@ -12,8 +17,11 @@ script:
     - git config --global user.email ${GIT_EMAIL}
     - git clone --quiet --branch=MeatPieDay https://${OAUTH_TOKEN}@github.com/karino2/MLProbability mpddir > /dev/null 2>&1
     - cp mpddir/*.ipynb work/
+    - cp mpddir/md2pdf.go work/
+    - cp mpddir/contents.txt work/
     - pushd work
     - ls *.ipynb | xargs -L 1 mpd2md
+    - docker run -it --rm -v `pwd`:/workspace karino/pandocgo /bin/sh -c "go run md2pdf.go" 
     - popd    
 after_success:
     - git config --global user.email ${GIT_EMAIL}
