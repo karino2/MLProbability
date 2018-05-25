@@ -12,4 +12,4 @@ layout: page
 
 以下に本サイトをまとめた物をpdfとして置いてあります。
 
-- [MLProbability.pdf](MLrobability.pdf)
+- [MLProbability.pdf](MLProbability.pdf)
