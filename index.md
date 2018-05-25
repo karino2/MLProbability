@@ -3,7 +3,7 @@ title: "トップページ"
 layout: page
 ---
 
-#　目次
+# 目次
 
 - [はじめに](intro.md)
 - [確率空間の話](p_space.md)
