@@ -25,7 +25,8 @@ func main() {
 	}
 
 	fixed := []string{"-o", "MLProbability.pdf",
-		"-V", "documentclass=ltjarticle",
+//		"-V", "documentclass=ltjarticle",
+		"-V", "documentclass=report",
 		"-V", "classoption=a4j",
 		"-V", "geometry:margin=1in",
 		"--pdf-engine=lualatex"}
