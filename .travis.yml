@@ -1,0 +1,42 @@
+sudo: required
+language: go
+go:
+    - master
+services:
+  - docker
+branches:
+    only:
+        - MeatPieDay
+before_install:
+  - docker build -t karino/pandocgo .
+install:
+    - go get github.com/karino2/mpd2md
+script:
+    - rm -rf ./workdir
+    - mkdir ./workdir
+    - git config --global user.email ${GIT_EMAIL}
+    - git clone --quiet --branch=MeatPieDay https://${OAUTH_TOKEN}@github.com/karino2/MLProbability mpddir > /dev/null 2>&1
+    - cp mpddir/*.ipynb workdir/
+    - cp mpddir/md2pdf.go workdir/
+    - cp mpddir/contents.txt workdir/
+    - pushd workdir
+    - ls *.ipynb | xargs -L 1 mpd2md
+    - cp contents.txt work/
+    - cp md2pdf.go work/
+    - cd work/
+    - docker run -it --rm -v `pwd`:/workspace karino/pandocgo /bin/sh -c "go run md2pdf.go" 
+    - rm contents.txt
+    - rm md2pdf.go
+    - popd    
+after_success:
+    - git config --global user.email ${GIT_EMAIL}
+    - git clone --quiet --branch=master https://${OAUTH_TOKEN}@github.com/karino2/MLProbability masterdir > /dev/null 2>&1
+    - rm -rf masterdir/imgs
+    - cp -r workdir/work/* masterdir/
+    - pushd masterdir
+    - git add -A
+    - git commit -m "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
+    - git push -fq origin master > /dev/null 2>&1
+    - popd
+notifications:
+  email: false
