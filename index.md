@@ -7,6 +7,7 @@ layout: page
 
 - [はじめに](intro.md)
 - [確率空間の話](p_space.md)
+- [シグマとボレル集合族と測度](borel.md)
 
 ## PDF版
 
