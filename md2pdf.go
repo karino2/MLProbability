@@ -25,7 +25,7 @@ func main() {
 	}
 
 	fixed := []string{"-o", "MLProbability.pdf",
-//		"-V", "documentclass=ltjarticle",
+		//		"-V", "documentclass=ltjarticle",
 		"-V", "documentclass=ltjreport",
 		"-V", "classoption=a4j",
 		"-V", "geometry:margin=1in",
@@ -38,7 +38,7 @@ func main() {
 	cmd := exec.Command("pandoc", pandocargs...)
 
 	if err = cmd.Run(); err != nil {
-		panic("cant execute pandoc " + strings.Join(pandocargs, " "))
+		panic("cant execute pandoc " + strings.Join(pandocargs, " ") + " : " + err.Error())
 	}
 
 }
