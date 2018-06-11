@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"os/exec"
 	"strings"
@@ -37,8 +38,9 @@ func main() {
 	// -o p_space.pdf -V documentclass=ltjarticle -V classoption=a4j -V geometry:margin=1in --pdf-engine=lualatex
 	cmd := exec.Command("pandoc", pandocargs...)
 
-	if err = cmd.Run(); err != nil {
-		panic("cant execute pandoc " + strings.Join(pandocargs, " ") + " : " + err.Error())
+	if outs, err := cmd.CombinedOutput(); err != nil {
+		msg := fmt.Sprintf("%s: %s", outs, err)
+		panic("cant execute pandoc " + strings.Join(pandocargs, " ") + " : " + msg)
 	}
 
 }
