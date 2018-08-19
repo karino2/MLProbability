@@ -54,7 +54,7 @@ layout: page
 
 図示すると以下のようになる。
 
-![imgs/borel/0000.png](imgs/borel/0000.png)
+![images/borel/0000.png](images/borel/0000.png)
 
 この時、シグマ集合族というのは赤とか青の丸で書いた物だ。
 
@@ -105,7 +105,7 @@ Fの否定もまた$$\mathscr{F}$$に含まれる、という事の意味を、�
 
 まず、偶数の目、という部分集合を考える。その否定というのは以下になる。
 
-![imgs/borel/0001.png](imgs/borel/0001.png)
+![images/borel/0001.png](images/borel/0001.png)
 
 つまり $$\{2, 4, 6\} \in \mathscr{B}$$なら、$$\{1, 3, 5\} \in \mathscr{B}$$でも無くてはいけない、という事だ。
 
@@ -122,7 +122,7 @@ $$ P(A) = 1 - P(\bar{A}) $$
 
 図示すると以下のようになる。
 
-![imgs/borel/0002.png](imgs/borel/0002.png)
+![images/borel/0002.png](images/borel/0002.png)
 
 $$ \{ 偶数の目 \cap 4以上の目 \} \in \mathscr{B} $$
 
@@ -136,11 +136,11 @@ $$ \{ 4, 6 \} \in \mathscr{B} $$
 
 例えば以下の緑の網掛けみたいな感じのが表現出来ます。
 
-![imgs/borel/0003.png](imgs/borel/0003.png)
+![images/borel/0003.png](images/borel/0003.png)
 
-![imgs/borel/0004.png](imgs/borel/0004.png)
+![images/borel/0004.png](images/borel/0004.png)
 
-![imgs/borel/0005.png](imgs/borel/0005.png)
+![images/borel/0005.png](images/borel/0005.png)
 
 逆にこういう良くあるようなパターンも確率測度の対象となるような物を全部集めた物、
 それがシグマ集合族、と思っておいて実用上はOKです。
