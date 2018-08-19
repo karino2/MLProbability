@@ -36,7 +36,7 @@ script:
 after_success:
     - git config --global user.email ${GIT_EMAIL}
     - git clone --quiet --branch=master https://${OAUTH_TOKEN}@github.com/karino2/MLProbability masterdir > /dev/null 2>&1
-    - rm -rf masterdir/imgs
+    - rm -rf masterdir/images
     - cp -r workjekyll/work/* masterdir/
     - cp workpandoc/work/MLProbability.pdf masterdir/
     - pushd masterdir
